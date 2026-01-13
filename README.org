@@ -1,0 +1,21 @@
+* Balance
+
+Project management that just works.
+
+** Goal
+
+Put Basecamp, Jira, and Teamwork out of business by building software that serves users—not marketing companies.
+
+No telemetry. No AI. No side panels. No fluff. Just get your work done.
+
+** Contributing
+
+1. Fork the repo
+2. Create a feature branch
+3. Submit a PR
+
+Keep it simple. If it doesn't help users get work done, it doesn't belong here.
+
+** License
+
+GPL-3.0
