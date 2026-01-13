@@ -35,7 +35,13 @@ function handle_project_show(PDO $db, int $id): void {
         redirect('/projects');
     }
 
-    $tasks = task_get_all_for_project($db, $id);
+    $filter = $_GET['filter'] ?? null;
+    $valid_filters = ['today', 'overdue', 'high', 'pending'];
+    if ($filter && !in_array($filter, $valid_filters)) {
+        $filter = null;
+    }
+
+    $tasks = task_get_all_for_project($db, $id, $filter);
     require __DIR__ . '/../views/projects/show.php';
 }
 

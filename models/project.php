@@ -50,3 +50,18 @@ function project_delete(PDO $db, int $id): void {
     $db->prepare("DELETE FROM tasks WHERE project_id = :id")->execute(['id' => $id]);
     $db->prepare("DELETE FROM projects WHERE id = :id")->execute(['id' => $id]);
 }
+
+function project_search(PDO $db, int $user_id, string $query): array {
+    $stmt = $db->prepare("
+        SELECT * FROM projects
+        WHERE user_id = :user_id
+          AND (name LIKE :query OR description LIKE :query)
+        ORDER BY created_at DESC
+        LIMIT 20
+    ");
+    $stmt->execute([
+        'user_id' => $user_id,
+        'query' => "%$query%",
+    ]);
+    return $stmt->fetchAll();
+}

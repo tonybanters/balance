@@ -1,4 +1,4 @@
-<?php $title = 'Projects - Balance'; ?>
+<?php $title = 'Organizations - Balance'; ?>
 <?php ob_start(); ?>
 
 <header class="top_nav">
@@ -15,26 +15,23 @@
 <main class="content">
     <div class="page_header">
         <div class="page_title_row">
-            <h1>Projects</h1>
-            <a href="/projects/create" class="btn btn_primary">New Project</a>
+            <h1>Organizations</h1>
+            <a href="/organizations/create" class="btn btn_primary">New Organization</a>
         </div>
-        <a href="/organizations" class="back_link">View organizations</a>
+        <a href="/projects" class="back_link">View personal projects</a>
     </div>
 
-    <?php if (empty($projects)): ?>
+    <?php if (empty($organizations)): ?>
     <div class="empty_state">
-        <p>No projects yet. Create your first project to get started.</p>
+        <p>No organizations yet. Create one to collaborate with your team.</p>
     </div>
     <?php else: ?>
     <div class="projects_grid">
-        <?php foreach ($projects as $project): ?>
-        <a href="/projects/<?= $project['id'] ?>" class="project_card">
-            <h3><?= h($project['name']) ?></h3>
-            <?php if ($project['description']): ?>
-            <p class="project_desc"><?= h($project['description']) ?></p>
-            <?php endif; ?>
+        <?php foreach ($organizations as $org): ?>
+        <a href="/o/<?= h($org['slug']) ?>" class="project_card">
+            <h3><?= h($org['name']) ?></h3>
             <div class="project_meta">
-                <span><?= $project['task_count'] ?> task<?= $project['task_count'] !== 1 ? 's' : '' ?></span>
+                <span>Role: <?= h($org['role']) ?></span>
             </div>
         </a>
         <?php endforeach; ?>

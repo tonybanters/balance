@@ -24,6 +24,11 @@
         ];
         shellHook = ''
           export PS1="(balance-dev) $PS1"
+          echo ""
+          echo "Balance Dev Shell"
+          echo "─────────────────"
+          echo "Run the server:  php -S localhost:8000 -t public"
+          echo ""
         '';
       };
     });

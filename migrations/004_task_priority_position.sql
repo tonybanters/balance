@@ -1,0 +1,2 @@
+ALTER TABLE tasks ADD COLUMN priority TEXT DEFAULT 'medium';
+ALTER TABLE tasks ADD COLUMN position INTEGER DEFAULT 0;
